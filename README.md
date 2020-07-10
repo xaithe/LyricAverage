@@ -22,7 +22,7 @@ The optional args can also be written as a single string.
 For example, if I wanted to get the minimum and maximum word count, the additonal stats (standard deviation and variance), and enter the interactive search for the Foo Fighters:
 
 ```
-Python lyricaverage.py "Foo Fighters -msi
+Python lyricaverage.py "Foo Fighters" -msi
 ```
 
 ## Args
@@ -42,3 +42,5 @@ Enables the return of an extended list of statistics about the artist's discogra
 ### -i/--interactive
 
 Allows the user to enter the interactive "search" following the intial display of data. This allows the user to gain insight into a specific song, and how it relates to the overall discography of the artist.
+
+![](https://i.gyazo.com/b2a43d3f0f2d600be40b24446368cd71.png)
