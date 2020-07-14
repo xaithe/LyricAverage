@@ -15,7 +15,7 @@ pip install -r requirements.txt
 ```
 
 ## Usage
-Using the script is fairly simple and it allows you to specify what stats you want to view. A future deveopment would be to write the data to a file i.e. CSV or JSON.
+Using the script is fairly simple and it allows you to specify what stats you want to view. A future development would be to write the data to a file i.e. CSV or JSON.
 
 ```
 Python lyricaverage.py <"artist name"> [-m, --minmax] [-s, --stats] [-i, --interactive]
