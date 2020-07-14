@@ -47,5 +47,3 @@ Enables the return of an extended list of statistics about the artist's discogra
 Allows the user to enter the interactive "search" following the intial display of data. This allows the user to gain insight into a specific song, and how it relates to the overall discography of the artist.
 
 ![](https://i.gyazo.com/b2a43d3f0f2d600be40b24446368cd71.png)
-
-stuff about e.g. chorus x2 etc.
