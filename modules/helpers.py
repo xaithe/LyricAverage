@@ -1,23 +1,28 @@
+"""
+@author: Tom Gulliver
+
+"""
+
 def percentage(numerator, denominator):
-    """[summary]
+    """Quick funtion for finding the percentage of two numbers
 
     Args:
-        numerator ([type]): [description]
-        denominator ([type]): [description]
+        numerator (float): the numberator
+        denominator (float): the denominator
 
     Returns:
-        [type]: [description]
+        float: the resultant percentage value
     """    
     return (numerator/denominator)*100
 
 def ordinal(value):
-    """[summary]
+    """Appends the correct ordinal to a number
 
     Args:
-        value ([type]): [description]
+        value (int): [description]
 
     Returns:
-        [type]: [description]
+        string: the number with appended ordinal
     """    
 
     if value % 100//10 != 1:
@@ -35,14 +40,14 @@ def ordinal(value):
     return ordval
 
 def minNames(songs):
-    """[summary]
+    """Finds the titles of the songs with the minimum word count
 
     Args:
-        songs ([type]): [description]
+        songs (dict[string : int]): A dict mapping a song to it's word count
 
     Returns:
-        [type]: [description]
-    """    
+        list[string]: A list of song titles
+    """        
 
     minimum = min(i for i in songs.values() if i > 1)
     songsout = []
@@ -54,13 +59,13 @@ def minNames(songs):
     return songsout
 
 def maxNames(songs):
-    """[summary]
+    """Finds the titles of the songs with the maximum word count
 
     Args:
-        songs ([type]): [description]
+        songs (dict[string : int]): A dict mapping a song to it's word count
 
     Returns:
-        [type]: [description]
+        list[string]: A list of song titles
     """    
 
     maximum = max(songs.values())
@@ -71,13 +76,13 @@ def maxNames(songs):
     return songsout
 
 def getErrors(songs):
-    """[summary]
+    """Finds the errored songs in a dict of title: word count
 
     Args:
-        songs ([type]): [description]
+        songs (dict[string : int]): A dict mapping a song to it's word count
 
     Returns:
-        [type]: [description]
+        list[string]: A list of song titles
     """    
 
     songsout = []

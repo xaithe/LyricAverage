@@ -1,20 +1,29 @@
+"""
+@author: Tom Gulliver
+
+Functions for interacting with the lyrics.ovh API
+"""
+
 import json
 import requests
 import urllib.parse
 
 def getLyrics(artist, title):
-    """[summary]
+    """Gets lyrics for a song forom the lyrics API
 
     Args:
-        artist ([type]): [description]
-        title ([type]): [description]
+        artist (string): artist name
+        title (string): song title
 
     Returns:
-        [type]: [description]
+        string: song lyrics
     """    
 
+    # Encode the strings in a http valid format
     artisturi = urllib.parse.quote(artist)
     titleuri = urllib.parse.quote(title)
+
+    # Fixes encoding issue that caused false negative results
     titleuri = titleuri.replace("%E2%80%99" , "%27")
     titleuri = titleuri.replace("%2B", "%26")
 
@@ -26,35 +35,28 @@ def getLyrics(artist, title):
     
     return req.json()["lyrics"]
 
-def removeNewlines(lyrics):
-    """[summary]
-
-    Args:
-        lyrics ([type]): [description]
-
-    Returns:
-        [type]: [description]
-    """    
-
-    lyrics = lyrics.replace("\\n\\n", " ")
-    lyrics = lyrics.replace("\\n", " ")
-    lyrics = lyrics.replace("\\r", " ")
-
-    return lyrics
 
 def countWords(lyrics):
-    """[summary]
+    """Counts the lyrics in a string, allowing for line breaks
 
     Args:
-        lyrics ([type]): [description]
+        lyrics (string): the lyrics of a song
 
     Returns:
-        [type]: [description]
+        int: word count
     """    
+    finallyrics = []
+    licenseerror = 32
+    licenselyric = "Unfortunately,"
 
-    words = removeNewlines(lyrics).split()
-    
-    if len(words) == 32 and words[0]=="Unfortunately,":
+    for line in lyrics.splitlines():
+        for word in line.split(" "):
+            if word == "":
+                continue
+            finallyrics.append(word)
+
+    # Checks for lyrics API license issue
+    if len(finallyrics) == licenseerror and finallyrics[0]==licenselyric:
         return -1
 
-    return len(words)
+    return len(finallyrics)
