@@ -73,7 +73,7 @@ def lyricCounter(numberOfThreads,songs):
 
 lyricCounter(100, songslist)
 
-# contruct lists of valid word counts, and 
+# contruct lists of valid word counts, and a count of songs that had license issues
 discovalid = np.asarray(list(i for i in discography.values() if i > 1))
 discolicense = np.asarray(list(i for i in discography.values() if i < 0))
 
